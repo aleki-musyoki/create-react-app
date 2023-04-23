@@ -9,6 +9,15 @@ class App extends Component {
           <p>
             I'm jealous of the way you're happy without me
           </p>
+          <p>
+            He's a good music producer!
+          </p>
+          <p>
+            He's a good person overall!
+          </p>
+          <p>
+            He's a creative genius!
+          </p>
           <a
             className="App-link"
             href="https://reactjs.org"
