@@ -7,7 +7,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <p>
-            Hello from the other side!
+            I'm jealous of the way you're happy without me
           </p>
           <a
             className="App-link"
@@ -15,7 +15,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Adelle is calling
+            Labryinth is in town again!
           </a>
         </header>
       </div>
