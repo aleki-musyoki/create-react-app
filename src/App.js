@@ -12,7 +12,7 @@ class App extends Component {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Blank pages again
+            Blank pages again! Don't think so
           </a>
         </header>
       </div>
