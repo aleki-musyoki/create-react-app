@@ -35,6 +35,9 @@ jobs:
       - name: Create a release
         run: npm run release
 
+      - name: Publish the releases
+        run: git push --follow-tags origin HEAD
+
       # Run npm install and build on our code
       - name: Build the Application
         run: npm run build --if-present
