@@ -29,6 +29,7 @@ jobs:
         env:
           GIT_AUTHOR_NAME: ${{ secrets.AUTHOR_NAME }}
           GIT_AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
+          GIT_ORIGIN: ${{secrets.REMOTE}}
         run: git config --global user.name "${GIT_AUTHOR_NAME}"
       - run: git config --global user.email "${GIT_AUTHOR_EMAIL}"
 
@@ -36,7 +37,7 @@ jobs:
         run: npm run release
 
       - name: Publish the releases
-        run: git push --follow-tags origin HEAD
+        run: git push --follow-tags ${GIT_ORIGIN} HEAD
 
       # Run npm install and build on our code
       - name: Build the Application
