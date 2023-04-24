@@ -4,7 +4,7 @@ name: Production workflow
 # When workflow is triggered
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 # Jobs to carry out
 jobs:
@@ -26,13 +26,13 @@ jobs:
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3.7.1
         with:
-          github-token: ${{ secrets.github_token }}
+          github-token: ${{ secrets.PERSONAL_TOKEN }}
 
       - name: create release
         uses: actions/create-release@v1
         if: ${{ steps.changelog.outputs.skipped == 'false' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.github_token }}
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
         with:
           tag_name: ${{ steps.changelog.outputs.tag }}
           release_name: ${{ steps.changelog.outputs.tag }}
