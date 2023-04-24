@@ -30,7 +30,7 @@ jobs:
           GIT_AUTHOR_NAME: ${{ secrets.AUTHOR_NAME }}
           GIT_AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL }}
         run: git config --global user.name "${GIT_AUTHOR_NAME}"
-      - run: git config ---global user.email "${GIT_AUTHOR_EMAIL}"
+      - run: git config --global user.email "${GIT_AUTHOR_EMAIL}"
 
       - name: Create a release
         run: npm run release
