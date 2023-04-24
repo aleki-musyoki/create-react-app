@@ -22,25 +22,14 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v3.7.1
-        with:
-          github-token: ${{ secrets.PERSONAL_TOKEN }}
+      - name: Install Dependencies
+        run: npm install
 
-      - name: create release
-        uses: actions/create-release@v1
-        if: ${{ steps.changelog.outputs.skipped == 'false' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-        with:
-          tag_name: ${{ steps.changelog.outputs.tag }}
-          release_name: ${{ steps.changelog.outputs.tag }}
-          body: ${{ steps.changelog.outputs.clean_changelog }}
+      - name: Create a release
+        run: npm run release
 
       # Run npm install and build on our code
       - name: Build the Application
-        run: npm install
       - run: npm run build --if-present
 
       # Deploy to Netlify using our build hook, but only if tests pass
