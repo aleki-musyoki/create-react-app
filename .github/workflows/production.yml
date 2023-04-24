@@ -34,10 +34,11 @@ jobs:
       - run: git config --global user.email "${GIT_AUTHOR_EMAIL}"
 
       - name: Create a release
-        run: npm run release
+        run: git checkout master
+      - run: npm run release
 
       - name: Publish the releases
-        run: git push --follow-tags ${GIT_ORIGIN} master
+        run: git push --follow-tags ${GIT_ORIGIN} HEAD:master
 
       # Run npm install and build on our code
       - name: Build the Application
